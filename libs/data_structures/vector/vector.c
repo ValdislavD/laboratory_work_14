@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdint.h>
 #include <malloc.h>
 #include "vector.h"
@@ -40,4 +41,36 @@ void shrinkToFit(vector *v) {
 
 void deleteVector(vector *v) {
     reserve(v, 0);
+}
+
+bool isEmpty(vector *v) {
+    return v->size == 0;
+}
+
+bool isFull(vector *v) {
+    return v->size == v->capacity;
+}
+
+int getVectorValue(vector *v, size_t i) {
+    return v->data[i];
+}
+
+void append_(int *data, int *size, int x) {
+    data[*size] = x; // Добавляем новый элемент в конец массива данных
+    (*size)++;       // Увеличиваем размер массива
+}
+
+void pushBack(vector *v, int x) {
+    if (v->capacity == 0)
+        reserve(v, 1);
+    else if (isFull(v))
+        reserve(v, v->capacity * 2);
+    append_(v->data, &v->size, x);
+}
+
+void popBack(vector *v) {
+    if (isEmpty(v)) {
+        badAllocV();
+    }
+    v->size--;
 }

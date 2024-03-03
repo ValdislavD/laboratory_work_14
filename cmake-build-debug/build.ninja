@@ -55,6 +55,12 @@ build CMakeFiles/untitled17.dir/main.c.obj: C_COMPILER__untitled17_unscanned_Deb
   OBJECT_DIR = CMakeFiles\untitled17.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled17.dir
 
+build CMakeFiles/untitled17.dir/test_vector.c.obj: C_COMPILER__untitled17_unscanned_Debug C$:/Users/vladi/CLionProjects/untitled17/test$ vector.c || cmake_object_order_depends_target_untitled17
+  DEP_FILE = CMakeFiles\untitled17.dir\test_vector.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled17.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled17.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled17
@@ -63,7 +69,7 @@ build CMakeFiles/untitled17.dir/main.c.obj: C_COMPILER__untitled17_unscanned_Deb
 #############################################
 # Link the executable untitled17.exe
 
-build untitled17.exe: C_EXECUTABLE_LINKER__untitled17_Debug CMakeFiles/untitled17.dir/main.c.obj | libs/data_structures/libdata_structures.a || libs/data_structures/libdata_structures.a
+build untitled17.exe: C_EXECUTABLE_LINKER__untitled17_Debug CMakeFiles/untitled17.dir/main.c.obj CMakeFiles/untitled17.dir/test_vector.c.obj | libs/data_structures/libdata_structures.a || libs/data_structures/libdata_structures.a
   FLAGS = -g
   LINK_LIBRARIES = libs/data_structures/libdata_structures.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled17.dir
