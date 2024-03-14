@@ -18,17 +18,21 @@ vector createVector(size_t n) {
 
 void reserve(vector *v, size_t newCapacity) {
     if (newCapacity == 0) {
+        free(v->data); // Освобождаем память, если новая емкость равна 0
         v->data = NULL;
+        v->size = 0;
+        v->capacity = 0;
         return;
     }
     else if (newCapacity < v->size) {
-        v->size = newCapacity;
+        v->size = newCapacity; // Уменьшаем размер, если новая емкость меньше текущего размера
     }
-    v->data = (int *) realloc(v->data, sizeof(int) * newCapacity);
-    v->capacity = newCapacity;
-    if (v->data == NULL) {
+    int *newData = (int *) realloc(v->data, sizeof(int) * newCapacity);
+    if (newData == NULL) {
         badAllocV();
     }
+    v->data = newData;
+    v->capacity = newCapacity;
 }
 
 void clear(vector *v) {
